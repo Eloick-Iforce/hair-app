@@ -31,7 +31,7 @@ function App() {
   }
 
   return (
-    <div className="p-10 bg-[rgba(255,255,255,0.1)] backdrop-filter backdrop-blur-md rounded-xl">
+    <div className="p-10 bg-gradient-to-r from-blue-500 to-green-500 min-h-screen">
       <div className="flex justify-center mb-4 items-center">
         <input
           type="text"
