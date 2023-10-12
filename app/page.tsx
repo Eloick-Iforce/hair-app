@@ -43,7 +43,7 @@ function App() {
 
   return (
     <div className="p-10 bg-blue-400 min-h-screen">
-      <div className="flex justify-center mb-4 items-center text-white gap-10">
+      <div className="flex justify-center mb-4 items-center text-white gap-10 flex-wrap">
         <div className="flex items-center">
           <input
             type="text"
