@@ -48,7 +48,7 @@ function App() {
           <input
             type="text"
             placeholder="Search..."
-            className="border p-2 rounded mr-2 card "
+            className="border p-2 rounded mr-2 card placeholder:text-white focus:outline-none focus:ring-white focus:ring-1 "
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
