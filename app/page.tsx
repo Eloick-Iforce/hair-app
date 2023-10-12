@@ -14,8 +14,8 @@ function App() {
   useEffect(() => {
     fetch("/coiffeurs.json")
       .then((response) => response.json())
-      .then((json: { data: Data }) => setData(json.data.features));
-    setIsLoading(false);
+      .then((json: { data: Data }) => setData(json.data.features))
+      .then(() => setIsLoading(false));
   }, []);
 
   const filteredData = data
