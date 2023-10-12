@@ -3,6 +3,7 @@ export interface Root {
 }
 
 export interface Data {
+  data: any;
   type: string;
   name: string;
   features: Feature[];

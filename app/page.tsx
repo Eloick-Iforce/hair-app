@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Data, Feature } from "../public/type";
+import Link from "next/link";
 
 function App() {
   const [data, setData] = useState<Feature[]>([]);
@@ -32,15 +33,22 @@ function App() {
 
   return (
     <div className="p-10 bg-blue-400 min-h-screen">
-      <div className="flex justify-center mb-4 items-center text-white">
-        <input
-          type="text"
-          placeholder="Search..."
-          className="border p-2 rounded mr-2 card "
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <p className="text-white">{filteredData.length} résultats</p>
+      <div className="flex justify-center mb-4 items-center text-white gap-10">
+        <div className="flex items-center">
+          <input
+            type="text"
+            placeholder="Search..."
+            className="border p-2 rounded mr-2 card "
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <p className="text-white">{filteredData.length} résultats</p>
+        </div>
+        <Link href="/random">
+          <p className="p-2 bg-blue-500 text-white rounded">
+            Découvrir un établisement de manière Aléatoire !
+          </p>
+        </Link>
       </div>
       <div className="flex flex-wrap justify-around">
         {currentItems.map((item, index) => (
@@ -52,14 +60,11 @@ function App() {
               <p className="text-white text-base">{item.properties.addresse}</p>
             </div>
             <div className="px-6 py-4">
-              <a
-                href={`https://www.google.com/maps/search/?api=1&query=${item.geometry.coordinates[1]},${item.geometry.coordinates[0]}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-              >
-                Voir sur Google Maps
-              </a>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: item.properties.markerinnerhtml,
+                }}
+              />
             </div>
           </div>
         ))}
