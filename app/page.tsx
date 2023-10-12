@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Data, Feature } from "../public/type"; // assuming type.ts is in the same directory
+import { Data, Feature } from "../public/type";
 
 function App() {
   const [data, setData] = useState<Feature[]>([]);
@@ -31,12 +31,12 @@ function App() {
   }
 
   return (
-    <div className="p-10 bg-gradient-to-r from-blue-500 to-green-500 min-h-screen">
-      <div className="flex justify-center mb-4 items-center">
+    <div className="p-10 bg-blue-400 min-h-screen">
+      <div className="flex justify-center mb-4 items-center text-white">
         <input
           type="text"
           placeholder="Search..."
-          className="border p-2 rounded mr-2 bg-[rgba(255,255,255,0.1)] backdrop-filter backdrop-blur-md"
+          className="border p-2 rounded mr-2 card "
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
@@ -44,17 +44,12 @@ function App() {
       </div>
       <div className="flex flex-wrap justify-around">
         {currentItems.map((item, index) => (
-          <div
-            key={index}
-            className="w-96 rounded overflow-hidden shadow-lg border border-gray-200 m-4 flex flex-col bg-[rgba(255,255,255,0.1)] backdrop-filter backdrop-blur-md"
-          >
+          <div key={index} className="w-96 card m-5">
             <div className="px-6 py-4 flex-grow">
               <div className="font-bold text-xl mb-2 text-white">
                 {item.properties.nom}
               </div>
-              <p className="text-gray-300 text-base">
-                {item.properties.addresse}
-              </p>
+              <p className="text-white text-base">{item.properties.addresse}</p>
             </div>
             <div className="px-6 py-4">
               <a
@@ -74,7 +69,7 @@ function App() {
           <button
             key={number}
             onClick={() => setCurrentPage(number)}
-            className="px-3 py-2 border rounded bg-[rgba(255,255,255,0.1)] backdrop-filter backdrop-blur-md text-white"
+            className="px-3 py-2 card text-white"
           >
             {number}
           </button>
