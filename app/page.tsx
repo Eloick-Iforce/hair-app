@@ -9,11 +9,13 @@ function App() {
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 200;
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch("/coiffeurs.json")
       .then((response) => response.json())
       .then((json: { data: Data }) => setData(json.data.features));
+    setIsLoading(false);
   }, []);
 
   const filteredData = data
@@ -29,6 +31,14 @@ function App() {
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(filteredData.length / itemsPerPage); i++) {
     pageNumbers.push(i);
+  }
+
+  if (isLoading) {
+    return (
+      <div className=" bg-blue-400 min-h-screen flex justify-center items-center">
+        <div className="lds-dual-ring"></div>
+      </div>
+    );
   }
 
   return (
