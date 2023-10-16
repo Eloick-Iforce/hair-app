@@ -26,7 +26,7 @@ function App() {
     <div className="p-10 bg-blue-400 min-h-screen flex flex-col items-center justify-center">
       <Link href="/">
         <p className="p-2 bg-blue-500 text-white rounded">
-          La liste de tous les établisements
+          La liste de tout les établisements
         </p>
       </Link>
       {data && (
